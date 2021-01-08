@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:letsplay/widgets/common/oops.dart';
+import 'package:flutter/painting.dart';
+import 'package:letsplay/widgets/common/Oops/oops.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/Header/header.dart';
-import 'package:flutter/painting.dart';
 
 class ExplorePage extends StatelessWidget {
   @override
@@ -24,12 +24,14 @@ class ExplorePage extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Oops(),
+                        Oops(
+                          message: 'You should be logged in to access this',
+                        ),
                         Container(
                           color: Colors.pink,
                           child: Center(
                             child: Text(
-                              'Car',
+                              'New people',
                             ),
                           ),
                         ),
