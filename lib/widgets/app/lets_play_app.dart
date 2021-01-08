@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/explore_page.dart';
+import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class LetsPlayApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Let\'s play',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,7 +26,10 @@ class LetsPlayApp extends StatelessWidget {
           ),
         ),
       ),
-      home: ExplorePage(),
+      initialRoute: Routes.EXPLORE_PAGE.path,
+      routes: {
+        Routes.EXPLORE_PAGE.path: (context) => ExplorePage(),
+      },
     );
   }
 }

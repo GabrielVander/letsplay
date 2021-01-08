@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:letsplay/lets_play_app.dart';
+import 'package:letsplay/widgets/app/lets_play_app.dart';
 
 void main() {
   runApp(MyApp());

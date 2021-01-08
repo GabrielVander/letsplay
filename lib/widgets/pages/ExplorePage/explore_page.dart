@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:letsplay/widgets/common/NavigationBar/navigation_bar.dart';
 import 'package:letsplay/widgets/common/Oops/oops.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/Header/header.dart';
+import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class ExplorePage extends StatelessWidget {
   @override
@@ -42,6 +44,9 @@ class ExplorePage extends StatelessWidget {
               ),
             ),
           ),
+        ),
+        bottomNavigationBar: NavigationBar(
+          index: Routes.EXPLORE_PAGE.navigationIndex,
         ),
       ),
     );
