@@ -17,6 +17,14 @@ class CustomTabBar extends StatelessWidget {
           width: 3,
         ),
         borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+            spreadRadius: 0,
+            blurRadius: 4,
+            offset: Offset(0, 4), // changes position of shadow
+          ),
+        ],
       ),
       child: TabBar(
         indicator: BoxDecoration(
