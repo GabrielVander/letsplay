@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:letsplay/generated/assets.dart';
+import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
 import 'package:letsplay/widgets/common/NavigationBar/navigation_bar.dart';
-import 'package:letsplay/widgets/common/Oops/oops.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/Header/header.dart';
 import 'package:letsplay/widgets/pages/routes/routes.dart';
@@ -26,17 +28,25 @@ class ExplorePage extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Oops(
-                          message: 'You should be logged in to access this',
-                        ),
-                        Container(
-                          color: Colors.pink,
-                          child: Center(
-                            child: Text(
-                              'New people',
+                        IllustratedMessage(
+                            picture: SvgPicture.asset(
+                              Assets.imagesCuteGamerDog,
+                              fit: BoxFit.fitWidth,
+                              clipBehavior: Clip.none,
+                              semanticsLabel: 'Cute gamer dog image',
                             ),
-                          ),
-                        ),
+                            title: 'Oops...',
+                            message: 'You should be logged in to access this'),
+                        IllustratedMessage(
+                            picture: SvgPicture.asset(
+                              Assets.imagesSleepyCoala,
+                              fit: BoxFit.fitWidth,
+                              clipBehavior: Clip.none,
+                              semanticsLabel: 'Cute sleepy girl image',
+                            ),
+                            title: 'Oh no...',
+                            message:
+                                'It seems no one is online. Help us grow by sharing the app with your friends!'),
                       ],
                     ),
                   ),
