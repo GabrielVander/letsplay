@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "explorePageHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Find people to play with"),
-    "explorePageHeaderTitle" : MessageLookupByLibrary.simpleMessage("Explore")
+    "explorePageHeaderTitle" : MessageLookupByLibrary.simpleMessage("Explore"),
+    "explorePageMyFollowersTabTitle" : MessageLookupByLibrary.simpleMessage("My followers"),
+    "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people")
   };
 }

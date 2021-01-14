@@ -54,6 +54,26 @@ class S {
       args: [],
     );
   }
+
+  /// `My followers`
+  String get explorePageMyFollowersTabTitle {
+    return Intl.message(
+      'My followers',
+      name: 'explorePageMyFollowersTabTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New people`
+  String get explorePageNewPeopleTabTitle {
+    return Intl.message(
+      'New people',
+      name: 'explorePageNewPeopleTabTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

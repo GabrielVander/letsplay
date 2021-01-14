@@ -1,5 +1,7 @@
 {
   "@@locale": "en_US",
   "explorePageHeaderTitle": "Explore",
-  "explorePageHeaderSubtitle": "Find people to play with"
+  "explorePageHeaderSubtitle": "Find people to play with",
+  "explorePageMyFollowersTabTitle": "My followers",
+  "explorePageNewPeopleTabTitle": "New people"
 }
