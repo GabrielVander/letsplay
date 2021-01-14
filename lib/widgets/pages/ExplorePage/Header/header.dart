@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:letsplay/generated/l10n.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -11,11 +12,11 @@ class Header extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Explore',
+          S.of(context).explorePageHeaderTitle,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         Text(
-          'Find people to play with',
+          S.of(context).explorePageHeaderSubtitle,
           style: TextStyle(
             fontSize: 18,
           ),

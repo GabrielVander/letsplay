@@ -35,7 +35,25 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Explore`
+  String get explorePageHeaderTitle {
+    return Intl.message(
+      'Explore',
+      name: 'explorePageHeaderTitle',
+      desc: '',
+      args: [],
+    );
+  }
 
+  /// `Find people to play with`
+  String get explorePageHeaderSubtitle {
+    return Intl.message(
+      'Find people to play with',
+      name: 'explorePageHeaderSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
