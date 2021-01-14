@@ -74,6 +74,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Cute gamer dog image`
+  String get explorePageMyFollowersTabContentIllustrationLabel {
+    return Intl.message(
+      'Cute gamer dog image',
+      name: 'explorePageMyFollowersTabContentIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops...`
+  String get explorePageMyFollowersTabContentMessageTitle {
+    return Intl.message(
+      'Oops...',
+      name: 'explorePageMyFollowersTabContentMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You should be logged in to access this`
+  String get explorePageMyFollowersTabContentMessageBody {
+    return Intl.message(
+      'You should be logged in to access this',
+      name: 'explorePageMyFollowersTabContentMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cute sleepy koala image`
+  String get explorePageNewPeopleTabContentIllustrationLabel {
+    return Intl.message(
+      'Cute sleepy koala image',
+      name: 'explorePageNewPeopleTabContentIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oh no...`
+  String get explorePageNewPeopleTabContentMessageTitle {
+    return Intl.message(
+      'Oh no...',
+      name: 'explorePageNewPeopleTabContentMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It seems no one is online. Help us grow by sharing the app with your friends!`
+  String get explorePageNewPeopleTabContentMessageBody {
+    return Intl.message(
+      'It seems no one is online. Help us grow by sharing the app with your friends!',
+      name: 'explorePageNewPeopleTabContentMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

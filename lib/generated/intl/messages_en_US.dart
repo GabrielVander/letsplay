@@ -23,7 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "explorePageHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Find people to play with"),
     "explorePageHeaderTitle" : MessageLookupByLibrary.simpleMessage("Explore"),
+    "explorePageMyFollowersTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute gamer dog image"),
+    "explorePageMyFollowersTabContentMessageBody" : MessageLookupByLibrary.simpleMessage("You should be logged in to access this"),
+    "explorePageMyFollowersTabContentMessageTitle" : MessageLookupByLibrary.simpleMessage("Oops..."),
     "explorePageMyFollowersTabTitle" : MessageLookupByLibrary.simpleMessage("My followers"),
+    "explorePageNewPeopleTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute sleepy koala image"),
+    "explorePageNewPeopleTabContentMessageBody" : MessageLookupByLibrary.simpleMessage("It seems no one is online. Help us grow by sharing the app with your friends!"),
+    "explorePageNewPeopleTabContentMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
     "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people")
   };
 }
