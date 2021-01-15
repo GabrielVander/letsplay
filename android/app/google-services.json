@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "121935226471",
+    "project_id": "lets-play-13c22",
+    "storage_bucket": "lets-play-13c22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121935226471:android:a5a54bcc586a7658e9d6c2",
+        "android_client_info": {
+          "package_name": "com.gabriel.letsplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121935226471-vqsj6qj560vsqsa2uj797a67iklae2pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6575yjDUeeC0WcTP535049f7UHQWG3bQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121935226471-vqsj6qj560vsqsa2uj797a67iklae2pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
