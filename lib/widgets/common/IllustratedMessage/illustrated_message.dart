@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class Oops extends StatelessWidget {
-  final String message;
-
-  const Oops({
+class IllustratedMessage extends StatelessWidget {
+  const IllustratedMessage({
     Key key,
-    this.message,
+    @required this.picture,
+    @required this.title,
+    @required this.message,
   }) : super(key: key);
+
+  final SvgPicture picture;
+  final String title;
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +23,13 @@ class Oops extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SvgPicture.asset(
-            'assets/images/cute_gamer_dog.svg',
-            fit: BoxFit.fitWidth,
-            clipBehavior: Clip.none,
-            semanticsLabel: 'Cute gamer dog image',
-          ),
+          picture,
           Container(
             margin: EdgeInsets.symmetric(
               vertical: 15,
             ),
             child: Text(
-              'Oops...',
+              title,
               style: Theme.of(context).textTheme.bodyText2.copyWith(
                     fontSize: 48,
                   ),
