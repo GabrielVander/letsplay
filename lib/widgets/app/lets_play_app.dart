@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/explore_page.dart';
 import 'package:letsplay/widgets/pages/routes/routes.dart';
+import 'package:letsplay/generated/l10n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 class LetsPlayApp extends StatelessWidget {
   @override
@@ -30,6 +33,13 @@ class LetsPlayApp extends StatelessWidget {
       routes: {
         Routes.EXPLORE_PAGE.path: (context) => ExplorePage(),
       },
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:letsplay/generated/l10n.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({
@@ -40,10 +41,10 @@ class CustomTabBar extends StatelessWidget {
                 ),
         tabs: [
           Tab(
-            child: Text('My followers'),
+            child: Text(S.of(context).explorePageMyFollowersTabTitle),
           ),
           Tab(
-            child: Text('New people'),
+            child: Text(S.of(context).explorePageNewPeopleTabTitle),
           ),
         ],
       ),

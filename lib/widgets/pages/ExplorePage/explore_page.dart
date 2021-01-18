@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:letsplay/generated/assets.dart';
+import 'package:letsplay/generated/l10n.dart';
 import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
 import 'package:letsplay/widgets/common/NavigationBar/navigation_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
@@ -33,20 +34,31 @@ class ExplorePage extends StatelessWidget {
                               Assets.imagesCuteGamerDog,
                               fit: BoxFit.fitWidth,
                               clipBehavior: Clip.none,
-                              semanticsLabel: 'Cute gamer dog image',
+                              semanticsLabel: S
+                                  .of(context)
+                                  .explorePageMyFollowersTabContentIllustrationLabel,
                             ),
-                            title: 'Oops...',
-                            message: 'You should be logged in to access this'),
+                            title: S
+                                .of(context)
+                                .explorePageMyFollowersTabContentMessageTitle,
+                            message: S
+                                .of(context)
+                                .explorePageMyFollowersTabContentMessageBody),
                         IllustratedMessage(
                             picture: SvgPicture.asset(
                               Assets.imagesSleepyCoala,
                               fit: BoxFit.fitWidth,
                               clipBehavior: Clip.none,
-                              semanticsLabel: 'Cute sleepy girl image',
+                              semanticsLabel: S
+                                  .of(context)
+                                  .explorePageNewPeopleTabContentIllustrationLabel,
                             ),
-                            title: 'Oh no...',
-                            message:
-                                'It seems no one is online. Help us grow by sharing the app with your friends!'),
+                            title: S
+                                .of(context)
+                                .explorePageNewPeopleTabContentMessageTitle,
+                            message: S
+                                .of(context)
+                                .explorePageNewPeopleTabContentMessageBody),
                       ],
                     ),
                   ),
