@@ -7,6 +7,7 @@ import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.d
 import 'package:letsplay/widgets/common/NavigationBar/navigation_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/Header/header.dart';
+import 'package:letsplay/widgets/pages/ExplorePage/UserList/user_list.dart';
 import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class ExplorePage extends StatelessWidget {
@@ -44,21 +45,7 @@ class ExplorePage extends StatelessWidget {
                             message: S
                                 .of(context)
                                 .explorePageMyFollowersTabContentMessageBody),
-                        IllustratedMessage(
-                            picture: SvgPicture.asset(
-                              Assets.imagesSleepyCoala,
-                              fit: BoxFit.fitWidth,
-                              clipBehavior: Clip.none,
-                              semanticsLabel: S
-                                  .of(context)
-                                  .explorePageNewPeopleTabContentIllustrationLabel,
-                            ),
-                            title: S
-                                .of(context)
-                                .explorePageNewPeopleTabContentMessageTitle,
-                            message: S
-                                .of(context)
-                                .explorePageNewPeopleTabContentMessageBody),
+                        UserList(),
                       ],
                     ),
                   ),

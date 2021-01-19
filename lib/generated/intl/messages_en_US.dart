@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "errorIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute programmer image"),
+    "errorMessageBody" : MessageLookupByLibrary.simpleMessage("Something went wrong"),
+    "errorMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
     "explorePageHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Find people to play with"),
     "explorePageHeaderTitle" : MessageLookupByLibrary.simpleMessage("Explore"),
     "explorePageMyFollowersTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute gamer dog image"),

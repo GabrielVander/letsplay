@@ -134,6 +134,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Cute programmer image`
+  String get errorIllustrationLabel {
+    return Intl.message(
+      'Cute programmer image',
+      name: 'errorIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oh no...`
+  String get errorMessageTitle {
+    return Intl.message(
+      'Oh no...',
+      name: 'errorMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get errorMessageBody {
+    return Intl.message(
+      'Something went wrong',
+      name: 'errorMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
