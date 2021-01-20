@@ -21,7 +21,9 @@ class UserList extends StatelessWidget {
               semanticsLabel: S.of(context).errorIllustrationLabel,
             ),
             title: S.of(context).errorMessageTitle,
-            message: S.of(context).errorMessageBody,
+            message: S.of(context).errorMessageBody +
+                '\n' +
+                snapshot.error.toString(),
           );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -43,7 +45,16 @@ class UserList extends StatelessWidget {
           );
         }
 
-        return Container();
+        return new ListView(
+          padding: const EdgeInsets.all(8),
+          children: snapshot.data.docs.map((DocumentSnapshot document) {
+            return new ListTile(
+              leading: document.data()['name'] ?? 'https://picsum.photos/200',
+              title: new Text(document.data()['name']),
+              // subtitle: new Text(document.data()['company']),
+            );
+          }).toList(),
+        );
       },
     );
   }
