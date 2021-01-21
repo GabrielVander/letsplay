@@ -164,6 +164,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Online`
+  String get userStatusOnline {
+    return Intl.message(
+      'Online',
+      name: 'userStatusOnline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offline`
+  String get userStatusOffline {
+    return Intl.message(
+      'Offline',
+      name: 'userStatusOffline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Playing`
+  String get userStatusPlaying {
+    return Intl.message(
+      'Playing',
+      name: 'userStatusPlaying',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown`
+  String get userStatusUnknown {
+    return Intl.message(
+      'Unknown',
+      name: 'userStatusUnknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status: `
+  String get userDisplayStatusLabel {
+    return Intl.message(
+      'Status: ',
+      name: 'userDisplayStatusLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get genericErrorLabel {
+    return Intl.message(
+      'Error',
+      name: 'genericErrorLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

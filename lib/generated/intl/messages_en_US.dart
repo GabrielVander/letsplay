@@ -33,6 +33,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "explorePageNewPeopleTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute sleepy koala image"),
     "explorePageNewPeopleTabContentMessageBody" : MessageLookupByLibrary.simpleMessage("It seems no one is online. Help us grow by sharing the app with your friends!"),
     "explorePageNewPeopleTabContentMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
-    "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people")
+    "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people"),
+    "genericErrorLabel" : MessageLookupByLibrary.simpleMessage("Error"),
+    "userDisplayStatusLabel" : MessageLookupByLibrary.simpleMessage("Status: "),
+    "userStatusOffline" : MessageLookupByLibrary.simpleMessage("Offline"),
+    "userStatusOnline" : MessageLookupByLibrary.simpleMessage("Online"),
+    "userStatusPlaying" : MessageLookupByLibrary.simpleMessage("Playing"),
+    "userStatusUnknown" : MessageLookupByLibrary.simpleMessage("Unknown")
   };
 }

@@ -12,5 +12,11 @@
   "explorePageNewPeopleTabContentMessageBody": "It seems no one is online. Help us grow by sharing the app with your friends!",
   "errorIllustrationLabel": "Cute programmer image",
   "errorMessageTitle": "Oh no...",
-  "errorMessageBody": "Something went wrong"
+  "errorMessageBody": "Something went wrong",
+  "userStatusOnline": "Online",
+  "userStatusOffline": "Offline",
+  "userStatusPlaying": "Playing",
+  "userStatusUnknown": "Unknown",
+  "userDisplayStatusLabel": "Status: ",
+  "genericErrorLabel": "Error"
 }
