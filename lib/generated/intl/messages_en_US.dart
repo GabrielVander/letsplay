@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "errorIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute programmer image"),
+    "errorMessageBody" : MessageLookupByLibrary.simpleMessage("Something went wrong"),
+    "errorMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
     "explorePageHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Find people to play with"),
     "explorePageHeaderTitle" : MessageLookupByLibrary.simpleMessage("Explore"),
     "explorePageMyFollowersTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute gamer dog image"),
@@ -30,6 +33,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "explorePageNewPeopleTabContentIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute sleepy koala image"),
     "explorePageNewPeopleTabContentMessageBody" : MessageLookupByLibrary.simpleMessage("It seems no one is online. Help us grow by sharing the app with your friends!"),
     "explorePageNewPeopleTabContentMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
-    "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people")
+    "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people"),
+    "genericErrorLabel" : MessageLookupByLibrary.simpleMessage("Error"),
+    "userDisplayStatusLabel" : MessageLookupByLibrary.simpleMessage("Status: "),
+    "userStatusOffline" : MessageLookupByLibrary.simpleMessage("Offline"),
+    "userStatusOnline" : MessageLookupByLibrary.simpleMessage("Online"),
+    "userStatusPlaying" : MessageLookupByLibrary.simpleMessage("Playing"),
+    "userStatusUnknown" : MessageLookupByLibrary.simpleMessage("Unknown")
   };
 }

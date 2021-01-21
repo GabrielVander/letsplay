@@ -14,22 +14,22 @@ import 'intl/messages_all.dart';
 
 class S {
   S();
-
+  
   static S current;
-
+  
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
+    final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-
+      
       return S.current;
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -130,6 +130,96 @@ class S {
     return Intl.message(
       'It seems no one is online. Help us grow by sharing the app with your friends!',
       name: 'explorePageNewPeopleTabContentMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cute programmer image`
+  String get errorIllustrationLabel {
+    return Intl.message(
+      'Cute programmer image',
+      name: 'errorIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oh no...`
+  String get errorMessageTitle {
+    return Intl.message(
+      'Oh no...',
+      name: 'errorMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get errorMessageBody {
+    return Intl.message(
+      'Something went wrong',
+      name: 'errorMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Online`
+  String get userStatusOnline {
+    return Intl.message(
+      'Online',
+      name: 'userStatusOnline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offline`
+  String get userStatusOffline {
+    return Intl.message(
+      'Offline',
+      name: 'userStatusOffline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Playing`
+  String get userStatusPlaying {
+    return Intl.message(
+      'Playing',
+      name: 'userStatusPlaying',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown`
+  String get userStatusUnknown {
+    return Intl.message(
+      'Unknown',
+      name: 'userStatusUnknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status: `
+  String get userDisplayStatusLabel {
+    return Intl.message(
+      'Status: ',
+      name: 'userDisplayStatusLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get genericErrorLabel {
+    return Intl.message(
+      'Error',
+      name: 'genericErrorLabel',
       desc: '',
       args: [],
     );
