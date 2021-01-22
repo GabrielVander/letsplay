@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "explorePageNewPeopleTabContentMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
     "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people"),
     "genericErrorLabel" : MessageLookupByLibrary.simpleMessage("Error"),
+    "loginButton" : MessageLookupByLibrary.simpleMessage("Login"),
+    "singUpButton" : MessageLookupByLibrary.simpleMessage("Sign up"),
     "userDisplayStatusLabel" : MessageLookupByLibrary.simpleMessage("Status: "),
     "userStatusOffline" : MessageLookupByLibrary.simpleMessage("Offline"),
     "userStatusOnline" : MessageLookupByLibrary.simpleMessage("Online"),

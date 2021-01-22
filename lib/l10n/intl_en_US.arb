@@ -18,5 +18,7 @@
   "userStatusPlaying": "Playing",
   "userStatusUnknown": "Unknown",
   "userDisplayStatusLabel": "Status: ",
-  "genericErrorLabel": "Error"
+  "genericErrorLabel": "Error",
+  "loginButton": "Login",
+  "singUpButton": "Sign up"
 }
