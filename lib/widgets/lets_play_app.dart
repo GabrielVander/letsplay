@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/explore_page.dart';
+import 'package:letsplay/widgets/pages/LoginPage/login_page.dart';
 import 'package:letsplay/widgets/pages/routes/routes.dart';
 import 'package:letsplay/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,6 +33,7 @@ class LetsPlayApp extends StatelessWidget {
       initialRoute: Routes.EXPLORE_PAGE.path,
       routes: {
         Routes.EXPLORE_PAGE.path: (context) => ExplorePage(),
+        Routes.LOGIN_PAGE.path: (context) => LoginPage(),
       },
       localizationsDelegates: [
         S.delegate,

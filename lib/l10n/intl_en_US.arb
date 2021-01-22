@@ -20,5 +20,11 @@
   "userDisplayStatusLabel": "Status: ",
   "genericErrorLabel": "Error",
   "loginButton": "Login",
-  "singUpButton": "Sign up"
+  "singUpButton": "Sign up",
+  "emailLabel": "Email",
+  "emailHint": "Enter your email",
+  "passwordLabel": "Password",
+  "passwordHint": "Enter your password",
+  "loginPageIllustrationLabel": "Cute dog with milkshake image",
+  "loginPagerNewUser": "New user? Create account"
 }

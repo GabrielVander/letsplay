@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "emailHint" : MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "emailLabel" : MessageLookupByLibrary.simpleMessage("Email"),
     "errorIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute programmer image"),
     "errorMessageBody" : MessageLookupByLibrary.simpleMessage("Something went wrong"),
     "errorMessageTitle" : MessageLookupByLibrary.simpleMessage("Oh no..."),
@@ -36,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "explorePageNewPeopleTabTitle" : MessageLookupByLibrary.simpleMessage("New people"),
     "genericErrorLabel" : MessageLookupByLibrary.simpleMessage("Error"),
     "loginButton" : MessageLookupByLibrary.simpleMessage("Login"),
+    "loginPageIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute dog with milkshake image"),
+    "loginPagerNewUser" : MessageLookupByLibrary.simpleMessage("New user? Create account"),
+    "passwordHint" : MessageLookupByLibrary.simpleMessage("Enter your password"),
+    "passwordLabel" : MessageLookupByLibrary.simpleMessage("Password"),
     "singUpButton" : MessageLookupByLibrary.simpleMessage("Sign up"),
     "userDisplayStatusLabel" : MessageLookupByLibrary.simpleMessage("Status: "),
     "userStatusOffline" : MessageLookupByLibrary.simpleMessage("Offline"),

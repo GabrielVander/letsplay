@@ -244,6 +244,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message(
+      'Email',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get emailHint {
+    return Intl.message(
+      'Enter your email',
+      name: 'emailHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message(
+      'Password',
+      name: 'passwordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get passwordHint {
+    return Intl.message(
+      'Enter your password',
+      name: 'passwordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cute dog with milkshake image`
+  String get loginPageIllustrationLabel {
+    return Intl.message(
+      'Cute dog with milkshake image',
+      name: 'loginPageIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New user? Create account`
+  String get loginPagerNewUser {
+    return Intl.message(
+      'New user? Create account',
+      name: 'loginPagerNewUser',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

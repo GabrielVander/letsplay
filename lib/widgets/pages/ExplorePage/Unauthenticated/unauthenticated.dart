@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:letsplay/generated/assets.dart';
 import 'package:letsplay/generated/l10n.dart';
 import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
+import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class Unauthenticated extends StatelessWidget {
   const Unauthenticated({
@@ -11,7 +12,6 @@ class Unauthenticated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -35,7 +35,8 @@ class Unauthenticated extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               color: Theme.of(context).primaryColor,
-              onPressed: () => {},
+              onPressed: () =>
+                  Navigator.pushNamed(context, Routes.LOGIN_PAGE.path),
             ),
             RaisedButton(
               child: Text(
