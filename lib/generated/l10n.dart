@@ -14,22 +14,22 @@ import 'intl/messages_all.dart';
 
 class S {
   S();
-
+  
   static S current;
-
+  
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
+    final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-
+      
       return S.current;
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -160,6 +160,36 @@ class S {
     return Intl.message(
       'Something went wrong',
       name: 'errorMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cute sleepy panda image`
+  String get emptyIllustrationLabel {
+    return Intl.message(
+      'Cute sleepy panda image',
+      name: 'emptyIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `So empty...`
+  String get emptyMessageTitle {
+    return Intl.message(
+      'So empty...',
+      name: 'emptyMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start following more people!`
+  String get emptyMessageBody {
+    return Intl.message(
+      'Start following more people!',
+      name: 'emptyMessageBody',
       desc: '',
       args: [],
     );

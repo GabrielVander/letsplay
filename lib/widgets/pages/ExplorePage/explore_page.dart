@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:letsplay/generated/assets.dart';
+import 'package:letsplay/generated/l10n.dart';
+import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
 import 'package:letsplay/widgets/common/NavigationBar/navigation_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/CustomTabBar/custom_tab_bar.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/Header/header.dart';
@@ -30,7 +34,17 @@ class ExplorePage extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        user == null ? Unauthenticated() : Container(),
+                        user == null
+                            ? Unauthenticated()
+                            : IllustratedMessage(
+                                picture: SvgPicture.asset(
+                                  Assets.imagesCuteSleepyPanda,
+                                  semanticsLabel:
+                                      S.of(context).emptyIllustrationLabel,
+                                ),
+                                title: S.of(context).emptyMessageTitle,
+                                message: S.of(context).emptyMessageBody,
+                              ),
                         UserList(),
                       ],
                     ),
