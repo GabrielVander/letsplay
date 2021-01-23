@@ -165,6 +165,36 @@ class S {
     );
   }
 
+  /// `Cute sleepy panda image`
+  String get emptyIllustrationLabel {
+    return Intl.message(
+      'Cute sleepy panda image',
+      name: 'emptyIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `So empty...`
+  String get emptyMessageTitle {
+    return Intl.message(
+      'So empty...',
+      name: 'emptyMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start following more people!`
+  String get emptyMessageBody {
+    return Intl.message(
+      'Start following more people!',
+      name: 'emptyMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Online`
   String get userStatusOnline {
     return Intl.message(
