@@ -26,5 +26,9 @@
   "passwordLabel": "Password",
   "passwordHint": "Enter your password",
   "loginPageIllustrationLabel": "Cute dog with milkshake image",
-  "loginPagerNewUser": "New user? Create account"
+  "loginPagerNewUser": "New user? Create account",
+  "loginPagerGenericEmptyField": "Please fill this field",
+  "authUserNotFound": "User not found",
+  "authWrongPassword": "Wrong password",
+  "authLoggedInSuccessfully": "Logged in successfully"
 }

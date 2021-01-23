@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,6 +11,8 @@ import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.d
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    User user = FirebaseAuth.instance.currentUser;
+
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     String getStatusLabel(UserStatus userStatus) {
@@ -22,11 +25,20 @@ class UserList extends StatelessWidget {
           return S.of(context).userStatusPlaying;
         case UserStatus.UNKNOWN:
           return S.of(context).userStatusUnknown;
+        default:
+          return null;
       }
     }
 
     return StreamBuilder<QuerySnapshot>(
-      stream: users.snapshots(),
+      stream: user == null
+          ? users.snapshots()
+          : users
+              .where(
+                FieldPath.documentId,
+                isNotEqualTo: user.uid,
+              )
+              .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return IllustratedMessage(

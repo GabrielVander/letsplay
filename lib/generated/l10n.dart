@@ -304,6 +304,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Please fill this field`
+  String get loginPagerGenericEmptyField {
+    return Intl.message(
+      'Please fill this field',
+      name: 'loginPagerGenericEmptyField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not found`
+  String get authUserNotFound {
+    return Intl.message(
+      'User not found',
+      name: 'authUserNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password`
+  String get authWrongPassword {
+    return Intl.message(
+      'Wrong password',
+      name: 'authWrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logged in successfully`
+  String get authLoggedInSuccessfully {
+    return Intl.message(
+      'Logged in successfully',
+      name: 'authLoggedInSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

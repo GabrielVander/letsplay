@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "authLoggedInSuccessfully" : MessageLookupByLibrary.simpleMessage("Logged in successfully"),
+    "authUserNotFound" : MessageLookupByLibrary.simpleMessage("User not found"),
+    "authWrongPassword" : MessageLookupByLibrary.simpleMessage("Wrong password"),
     "emailHint" : MessageLookupByLibrary.simpleMessage("Enter your email"),
     "emailLabel" : MessageLookupByLibrary.simpleMessage("Email"),
     "errorIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute programmer image"),
@@ -39,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "genericErrorLabel" : MessageLookupByLibrary.simpleMessage("Error"),
     "loginButton" : MessageLookupByLibrary.simpleMessage("Login"),
     "loginPageIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute dog with milkshake image"),
+    "loginPagerGenericEmptyField" : MessageLookupByLibrary.simpleMessage("Please fill this field"),
     "loginPagerNewUser" : MessageLookupByLibrary.simpleMessage("New user? Create account"),
     "passwordHint" : MessageLookupByLibrary.simpleMessage("Enter your password"),
     "passwordLabel" : MessageLookupByLibrary.simpleMessage("Password"),
