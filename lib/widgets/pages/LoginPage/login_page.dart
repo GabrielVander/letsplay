@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -24,14 +25,22 @@ class _LoginPageState extends State<LoginPage> {
         _isLoading = !_isLoading;
       });
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
+        UserCredential user =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email.value.text,
           password: _password.value.text,
         );
 
-        SnackBar(
-          content: Text(S.of(context).authLoggedInSuccessfully),
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(S.of(context).authLoggedInSuccessfully),
+          ),
         );
+
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.user.uid)
+            .update({'status': 'online'});
 
         Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
