@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authWrongPassword" : MessageLookupByLibrary.simpleMessage("Wrong password"),
     "emailHint" : MessageLookupByLibrary.simpleMessage("Enter your email"),
     "emailLabel" : MessageLookupByLibrary.simpleMessage("Email"),
+    "emptyChatMessageBody" : MessageLookupByLibrary.simpleMessage("Say hi!"),
     "emptyIllustrationLabel" : MessageLookupByLibrary.simpleMessage("Cute sleepy panda image"),
     "emptyMessageBody" : MessageLookupByLibrary.simpleMessage("Start following more people!"),
     "emptyMessageTitle" : MessageLookupByLibrary.simpleMessage("So empty..."),

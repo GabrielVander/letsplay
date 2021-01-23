@@ -5,8 +5,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:letsplay/generated/assets.dart';
 import 'package:letsplay/generated/l10n.dart';
+import 'package:letsplay/models/chat_page_arguments.dart';
 import 'package:letsplay/models/user_status.dart';
 import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
+import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class UserList extends StatelessWidget {
   @override
@@ -117,7 +119,12 @@ class UserList extends StatelessWidget {
                                 color:
                                     Theme.of(context).textTheme.bodyText2.color,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, Routes.CHAT_PAGE.path,
+                                    arguments: ChatPageArguments(
+                                        document.id, document.data()['name']));
+                              },
                             )
                           : Container(),
                     ],

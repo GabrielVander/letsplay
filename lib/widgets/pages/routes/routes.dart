@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 enum Routes {
   EXPLORE_PAGE,
-  LOGIN_PAGE
+  LOGIN_PAGE,
+  CHAT_PAGE
 }
 
 extension RoutesExtension on Routes {
@@ -12,6 +13,8 @@ extension RoutesExtension on Routes {
         return '/explore';
       case Routes.LOGIN_PAGE:
         return '/login';
+      case Routes.CHAT_PAGE:
+        return '/chat';
       default:
         return null;
     }
