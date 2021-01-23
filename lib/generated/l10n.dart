@@ -374,6 +374,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Logged out`
+  String get authLoggedOut {
+    return Intl.message(
+      'Logged out',
+      name: 'authLoggedOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logoutButtonTooltip {
+    return Intl.message(
+      'Logout',
+      name: 'logoutButtonTooltip',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

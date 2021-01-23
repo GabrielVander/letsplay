@@ -33,5 +33,7 @@
   "loginPagerGenericEmptyField": "Please fill this field",
   "authUserNotFound": "User not found",
   "authWrongPassword": "Wrong password",
-  "authLoggedInSuccessfully": "Logged in successfully"
+  "authLoggedInSuccessfully": "Logged in successfully",
+  "authLoggedOut": "Logged out",
+  "logoutButtonTooltip": "Logout"
 }
