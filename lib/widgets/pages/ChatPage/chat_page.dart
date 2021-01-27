@@ -24,6 +24,8 @@ class _ChatPageState extends State<ChatPage> {
   DocumentReference _chatRef;
   bool _isLoading = true;
 
+  TextEditingController textEditingController = TextEditingController();
+
   @override
   void initState() {
     User user = FirebaseAuth.instance.currentUser;
@@ -31,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
     FirebaseFirestore.instance
         .collection('chats')
-        .where('members', arrayContains: [widget.targetId, user.uid])
+        .where('members', whereIn: [widget.targetId, user.uid])
         .where('isGroup', isEqualTo: false)
         .get()
         .then((value) async {
@@ -56,6 +58,8 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    User user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
@@ -66,89 +70,142 @@ class _ChatPageState extends State<ChatPage> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : StreamBuilder(
-              stream: _chatRef
-                  .collection('messages')
-                  .orderBy('timestamp', descending: true)
-                  .snapshots(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return IllustratedMessage(
-                    picture: SvgPicture.asset(
-                      Assets.imagesCuteProgrammer,
-                      fit: BoxFit.fitHeight,
-                      semanticsLabel: S.of(context).errorIllustrationLabel,
-                    ),
-                    title: S.of(context).errorMessageTitle,
-                    message: S.of(context).errorMessageBody +
-                        '\n' +
-                        snapshot.error.toString(),
-                  );
-                }
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-                if (snapshot.data.size == 0) {
-                  return Center(
-                    child: IllustratedMessage(
-                      picture: SvgPicture.asset(
-                        Assets.imagesCuteSleepyPanda,
-                      ),
-                      title: S.of(context).emptyMessageTitle,
-                      message: S.of(context).emptyChatMessageBody,
-                    ),
-                  );
-                }
-                return ListView(
-                  children: snapshot.data.docs.map((DocumentSnapshot document) {
-                    User user = FirebaseAuth.instance.currentUser;
-
-                    Object rawTimestamp = document.data()['timestamp'];
-                    Timestamp timestamp = rawTimestamp as Timestamp;
-
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: new BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Align(
-                          alignment: document.data()['sender'] == user.uid
-                              ? Alignment.topLeft
-                              : Alignment.topRight,
-                          child: ListTile(
-                            contentPadding: EdgeInsets.all(10),
-                            title: Text(
-                              document.data()['content'],
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2
-                                  .copyWith(
-                                    fontSize: 24,
-                                  ),
+          : Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: StreamBuilder(
+                      stream: _chatRef
+                          .collection('messages')
+                          .orderBy('timestamp', descending: true)
+                          .snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (snapshot.hasError) {
+                          return IllustratedMessage(
+                            picture: SvgPicture.asset(
+                              Assets.imagesCuteProgrammer,
+                              fit: BoxFit.fitHeight,
+                              semanticsLabel:
+                                  S.of(context).errorIllustrationLabel,
                             ),
-                            subtitle: Text(
-                              DateTime.fromMillisecondsSinceEpoch(
-                                      timestamp.millisecondsSinceEpoch)
-                                  .toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2
-                                  .copyWith(
-                                    fontSize: 18,
+                            title: S.of(context).errorMessageTitle,
+                            message: S.of(context).errorMessageBody +
+                                '\n' +
+                                snapshot.error.toString(),
+                          );
+                        }
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        if (snapshot.data.size == 0) {
+                          return Center(
+                            child: IllustratedMessage(
+                              picture: SvgPicture.asset(
+                                Assets.imagesCuteSleepyPanda,
+                              ),
+                              title: S.of(context).emptyMessageTitle,
+                              message: S.of(context).emptyChatMessageBody,
+                            ),
+                          );
+                        }
+                        return ListView(
+                          reverse: true,
+                          children: snapshot.data.docs
+                              .map((DocumentSnapshot document) {
+                            Object rawTimestamp = document.data()['timestamp'];
+                            DateTime timestamp =
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    (rawTimestamp as Timestamp)
+                                        .millisecondsSinceEpoch);
+
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: ListTile(
+                                  contentPadding: EdgeInsets.all(10),
+                                  title: Text(
+                                    document.data()['content'],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        .copyWith(
+                                          fontSize: 24,
+                                        ),
                                   ),
+                                  subtitle: Text(
+                                    timestamp.day.toString() +
+                                        '/' +
+                                        timestamp.month.toString() +
+                                        '/' +
+                                        timestamp.year.toString() +
+                                        ' ' +
+                                        timestamp.hour.toString() +
+                                        ':' +
+                                        timestamp.minute.toString(),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        .copyWith(
+                                          fontSize: 12,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        );
+                      },
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 2, color: Theme.of(context).primaryColor)),
+                    padding: EdgeInsets.all(5),
+                    child: Row(
+                      children: <Widget>[
+                        Flexible(
+                          child: TextField(
+                            controller: textEditingController,
+                            style: Theme.of(context).textTheme.bodyText2,
+                            decoration: InputDecoration.collapsed(
+                              fillColor:
+                                  Theme.of(context).textTheme.bodyText2.color,
+                              hintText: "Send a message",
+                              hintStyle: Theme.of(context).textTheme.bodyText2,
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }).toList(),
-                );
-              },
+                        IconButton(
+                          icon: Icon(
+                            Icons.send,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          onPressed: () {
+                            if (textEditingController.value.text.isNotEmpty) {
+                              _chatRef.collection('messages').add({
+                                'content': textEditingController.value.text,
+                                'sender': user.uid,
+                                'timestamp': FieldValue.serverTimestamp(),
+                              });
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
     );
   }
