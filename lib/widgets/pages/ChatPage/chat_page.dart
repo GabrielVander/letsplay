@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:letsplay/generated/assets.dart';
 import 'package:letsplay/generated/l10n.dart';
-import 'package:letsplay/models/chat_page_arguments.dart';
 import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
 
 class ChatPage extends StatefulWidget {
+  final String targetId;
+  final String chatTitle;
+
   ChatPage({
     Key key,
+    @required this.chatTitle,
+    @required this.targetId,
   }) : super(key: key);
 
   @override
@@ -17,51 +21,45 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  String _chatId;
+  DocumentReference _chatRef;
   bool _isLoading = true;
 
   @override
-  Widget build(BuildContext context) {
-    final ChatPageArguments routeArguments =
-        ModalRoute.of(context).settings.arguments;
-    final String targetId = routeArguments.targetId;
-    final String chatTitle = routeArguments.chatTitle;
-
+  void initState() {
     User user = FirebaseAuth.instance.currentUser;
 
+    super.initState();
     FirebaseFirestore.instance
-        .collection('users')
-        .doc(user.uid)
         .collection('chats')
-        .doc(targetId)
+        .where('members', arrayContains: [widget.targetId, user.uid])
+        .where('isGroup', isEqualTo: false)
         .get()
         .then((value) async {
-      if (value.exists) {
-        return value.get('chatId');
-      }
-      DocumentReference chatRef = await FirebaseFirestore.instance
-          .collection('chats')
-          .add({'createdBy': user.uid});
+          if (value.size != 0) {
+            return value.docs[0];
+          }
+          DocumentReference chatRef =
+              await FirebaseFirestore.instance.collection('chats').add({
+            'members': [user.uid, widget.targetId],
+            'isGroup': false,
+          });
 
-      FirebaseFirestore.instance
-          .collection('users')
-          .doc(user.uid)
-          .collection('chats')
-          .doc(targetId)
-          .set({'chatId': chatRef.id});
+          return chatRef;
+        })
+        .then((chatRef) {
+          setState(() {
+            _isLoading = false;
+            _chatRef = chatRef;
+          });
+        });
+  }
 
-      return chatRef.id;
-    }).then((chatId) {
-      setState(() {
-        _isLoading = false;
-        _chatId = chatId;
-      });
-    });
-
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        title: Text(chatTitle),
+        title: Text(widget.chatTitle),
         automaticallyImplyLeading: true,
       ),
       body: _isLoading
@@ -69,15 +67,31 @@ class _ChatPageState extends State<ChatPage> {
               child: CircularProgressIndicator(),
             )
           : StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('chats')
-                  .doc(_chatId)
+              stream: _chatRef
                   .collection('messages')
                   .orderBy('timestamp', descending: true)
                   .snapshots(),
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (!snapshot.hasData) {
+                if (snapshot.hasError) {
+                  return IllustratedMessage(
+                    picture: SvgPicture.asset(
+                      Assets.imagesCuteProgrammer,
+                      fit: BoxFit.fitHeight,
+                      semanticsLabel: S.of(context).errorIllustrationLabel,
+                    ),
+                    title: S.of(context).errorMessageTitle,
+                    message: S.of(context).errorMessageBody +
+                        '\n' +
+                        snapshot.error.toString(),
+                  );
+                }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (snapshot.data.size == 0) {
                   return Center(
                     child: IllustratedMessage(
                       picture: SvgPicture.asset(
@@ -87,20 +101,25 @@ class _ChatPageState extends State<ChatPage> {
                       message: S.of(context).emptyChatMessageBody,
                     ),
                   );
-                } else {
-                  return ListView(
-                    children:
-                        snapshot.data.docs.map((DocumentSnapshot document) {
-                          Object rawTimestamp = document.data()['timestamp'];
-                          Timestamp timestamp = (Timestamp)timestamp;
+                }
+                return ListView(
+                  children: snapshot.data.docs.map((DocumentSnapshot document) {
+                    User user = FirebaseAuth.instance.currentUser;
 
-                          return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          decoration: new BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                    Object rawTimestamp = document.data()['timestamp'];
+                    Timestamp timestamp = rawTimestamp as Timestamp;
+
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: new BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Align(
+                          alignment: document.data()['sender'] == user.uid
+                              ? Alignment.topLeft
+                              : Alignment.topRight,
                           child: ListTile(
                             contentPadding: EdgeInsets.all(10),
                             title: Text(
@@ -113,7 +132,9 @@ class _ChatPageState extends State<ChatPage> {
                                   ),
                             ),
                             subtitle: Text(
-                              DateTime.fromMillisecondsSinceEpoch(timestamp.).toString(),
+                              DateTime.fromMillisecondsSinceEpoch(
+                                      timestamp.millisecondsSinceEpoch)
+                                  .toString(),
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
@@ -123,10 +144,10 @@ class _ChatPageState extends State<ChatPage> {
                             ),
                           ),
                         ),
-                      );
-                    }).toList(),
-                  );
-                }
+                      ),
+                    );
+                  }).toList(),
+                );
               },
             ),
     );
