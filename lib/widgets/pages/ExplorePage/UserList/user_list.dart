@@ -5,13 +5,16 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:letsplay/generated/assets.dart';
 import 'package:letsplay/generated/l10n.dart';
+import 'package:letsplay/models/chat_page_arguments.dart';
 import 'package:letsplay/models/user_status.dart';
 import 'package:letsplay/widgets/common/IllustratedMessage/illustrated_message.dart';
+import 'package:letsplay/widgets/pages/routes/routes.dart';
 
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User user = FirebaseAuth.instance.currentUser;
+    final isAuthenticated = user != null;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
@@ -31,14 +34,14 @@ class UserList extends StatelessWidget {
     }
 
     return StreamBuilder<QuerySnapshot>(
-      stream: user == null
-          ? users.snapshots()
-          : users
+      stream: isAuthenticated
+          ? users
               .where(
                 FieldPath.documentId,
                 isNotEqualTo: user.uid,
               )
-              .snapshots(),
+              .snapshots()
+          : users.snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return IllustratedMessage(
@@ -100,11 +103,31 @@ class UserList extends StatelessWidget {
                           );
                         }),
                   ),
-                  title: Text(
-                    document.data()['name'],
-                    style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontSize: 24,
-                        ),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        document.data()['name'],
+                        style: Theme.of(context).textTheme.bodyText2.copyWith(
+                              fontSize: 24,
+                            ),
+                      ),
+                      isAuthenticated
+                          ? IconButton(
+                              icon: Icon(
+                                Icons.chat,
+                                color:
+                                    Theme.of(context).textTheme.bodyText2.color,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, Routes.CHAT_PAGE.path,
+                                    arguments: ChatPageArguments(
+                                        document.id, document.data()['name']));
+                              },
+                            )
+                          : Container(),
+                    ],
                   ),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.start,

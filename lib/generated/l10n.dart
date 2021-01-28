@@ -195,6 +195,16 @@ class S {
     );
   }
 
+  /// `Say hi!`
+  String get emptyChatMessageBody {
+    return Intl.message(
+      'Say hi!',
+      name: 'emptyChatMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Online`
   String get userStatusOnline {
     return Intl.message(
