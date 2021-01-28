@@ -15,8 +15,11 @@ class Assets {
   static const String RobotoRegular = 'assets/fonts/Roboto/regular.ttf';
   static const String RobotoThin = 'assets/fonts/Roboto/thin.ttf';
   static const String RobotoThinItalic = 'assets/fonts/Roboto/thin_italic.ttf';
+  static const String appIconIsolatedLogoRecolored = 'assets/app_icon/isolated_logo_recolored.png';
   static const String imagesCuteGamerDog = 'assets/images/cute_gamer_dog.svg';
+  static const String imagesCuteMilkshakeDog = 'assets/images/cute_milkshake_dog.svg';
   static const String imagesCuteProgrammer = 'assets/images/cute_programmer.svg';
+  static const String imagesCuteSleepyPanda = 'assets/images/cute_sleepy_panda.svg';
   static const String imagesSleepyCoala = 'assets/images/sleepy_coala.svg';
 
 }

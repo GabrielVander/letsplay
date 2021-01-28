@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:letsplay/models/chat_page_arguments.dart';
+import 'package:letsplay/widgets/pages/ChatPage/chat_page.dart';
 import 'package:letsplay/widgets/pages/ExplorePage/explore_page.dart';
+import 'package:letsplay/widgets/pages/LoginPage/login_page.dart';
 import 'package:letsplay/widgets/pages/routes/routes.dart';
 import 'package:letsplay/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,6 +35,16 @@ class LetsPlayApp extends StatelessWidget {
       initialRoute: Routes.EXPLORE_PAGE.path,
       routes: {
         Routes.EXPLORE_PAGE.path: (context) => ExplorePage(),
+        Routes.LOGIN_PAGE.path: (context) => LoginPage(),
+        Routes.CHAT_PAGE.path: (context) {
+          final ChatPageArguments routeArguments =
+              ModalRoute.of(context).settings.arguments;
+
+          return ChatPage(
+            chatTitle: routeArguments.chatTitle,
+            targetId: routeArguments.targetId,
+          );
+        },
       },
       localizationsDelegates: [
         S.delegate,

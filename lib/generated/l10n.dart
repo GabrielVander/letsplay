@@ -165,6 +165,46 @@ class S {
     );
   }
 
+  /// `Cute sleepy panda image`
+  String get emptyIllustrationLabel {
+    return Intl.message(
+      'Cute sleepy panda image',
+      name: 'emptyIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `So empty...`
+  String get emptyMessageTitle {
+    return Intl.message(
+      'So empty...',
+      name: 'emptyMessageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start following more people!`
+  String get emptyMessageBody {
+    return Intl.message(
+      'Start following more people!',
+      name: 'emptyMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Say hi!`
+  String get emptyChatMessageBody {
+    return Intl.message(
+      'Say hi!',
+      name: 'emptyChatMessageBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Online`
   String get userStatusOnline {
     return Intl.message(
@@ -220,6 +260,146 @@ class S {
     return Intl.message(
       'Error',
       name: 'genericErrorLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get loginButton {
+    return Intl.message(
+      'Login',
+      name: 'loginButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get singUpButton {
+    return Intl.message(
+      'Sign up',
+      name: 'singUpButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message(
+      'Email',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get emailHint {
+    return Intl.message(
+      'Enter your email',
+      name: 'emailHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message(
+      'Password',
+      name: 'passwordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get passwordHint {
+    return Intl.message(
+      'Enter your password',
+      name: 'passwordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cute dog with milkshake image`
+  String get loginPageIllustrationLabel {
+    return Intl.message(
+      'Cute dog with milkshake image',
+      name: 'loginPageIllustrationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New user? Create account`
+  String get loginPagerNewUser {
+    return Intl.message(
+      'New user? Create account',
+      name: 'loginPagerNewUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill this field`
+  String get loginPagerGenericEmptyField {
+    return Intl.message(
+      'Please fill this field',
+      name: 'loginPagerGenericEmptyField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not found`
+  String get authUserNotFound {
+    return Intl.message(
+      'User not found',
+      name: 'authUserNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password`
+  String get authWrongPassword {
+    return Intl.message(
+      'Wrong password',
+      name: 'authWrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logged in successfully`
+  String get authLoggedInSuccessfully {
+    return Intl.message(
+      'Logged in successfully',
+      name: 'authLoggedInSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logged out`
+  String get authLoggedOut {
+    return Intl.message(
+      'Logged out',
+      name: 'authLoggedOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logoutButtonTooltip {
+    return Intl.message(
+      'Logout',
+      name: 'logoutButtonTooltip',
       desc: '',
       args: [],
     );
